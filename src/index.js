@@ -5,6 +5,7 @@ import {createStore, applyMiddleware, compose} from 'redux'
 import {counter, addGun, removeGun, addGunAsync} from './index.redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom'
 
 const reduxDevtools = window.devToolsExtension
 //1新建store
@@ -19,7 +20,24 @@ const store = createStore(counter, compose(
 // store.subscribe(listener)
 // //派发事件,传递action
 // store.dispatch(addGun())
+function erying() {
+    return <h1>二营</h1>
+}
+function qibinglian() {
+    return <h1>骑兵连</h1>
+}
 ReactDOM.render(<Provider store={store}>
-    <App/>
+   <Router>
+       <div>
+           <ul>
+               <li><Link to={'/'}>一营</Link></li>
+               <li><Link to={'/erying'}>2营</Link></li>
+               <li><Link to={'/qibinglian'}>骑兵连</Link></li>
+           </ul>
+           <Route exact path={'/'} component={App}></Route>
+           <Route path={'/erying'} component={erying}></Route>
+           <Route path={'/qibinglian'} component={qibinglian}></Route>
+       </div>
+   </Router>
 </Provider>, document.getElementById('root'))
 

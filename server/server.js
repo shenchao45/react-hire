@@ -28,7 +28,7 @@ app.get('/',function (req, res) {
     res.send('<h1>Hello World</h1>')
 })
 app.get('/data',function (req, res) {
-    User.find({name:"imooc",age:18},(err, res2) => {
+    User.findOne({name:"shenchao",age:18},(err, res2) => {
         if(!err) {
             res.json(res2)
         }

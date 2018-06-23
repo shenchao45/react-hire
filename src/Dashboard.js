@@ -21,7 +21,6 @@ class Text extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return <h2>测试组件</h2>
     }
 }
@@ -37,18 +36,18 @@ class Dashboard extends React.Component {
             {this.props.isAuth?<button onClick={this.props.logout}>注销</button>:null}
             <ul>
                 <li>
-                    <Link to={'/dashboard/'}>一营</Link>
+                    <Link to={`${this.props.match.url}/`}>一营</Link>
                 </li>
                 <li>
-                    <Link to={'/dashboard/erying'}>二营</Link>
+                    <Link to={`${this.props.match.url}/erying`}>二营</Link>
                 </li>
                 <li>
-                    <Link to={'/dashboard/qibinglian'}>骑兵连</Link>
+                    <Link to={`${this.props.match.url}/qibinglian`}>骑兵连</Link>
                 </li>
             </ul>
-            <Route path={'/dashboard/'} exact component={App}></Route>
-            <Route path={'/dashboard/erying'} component={erying}></Route>
-            <Route path={'/dashboard/qibinglian'} component={qibinglian}></Route>
+            <Route path={`${this.props.match.url}/`} exact component={App}></Route>
+            <Route path={`${this.props.match.url}/erying`} component={erying}></Route>
+            <Route path={`${this.props.match.url}/qibinglian`} component={qibinglian}></Route>
         </div>)
         return this.props.isAuth?app:redirectToLogin
     }

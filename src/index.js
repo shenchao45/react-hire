@@ -8,6 +8,7 @@ import {Provider} from 'react-redux'
 import {BrowserRouter as Router, Switch, Route, Link,Redirect} from 'react-router-dom'
 import Auth from './Auth'
 import Dashboard from './Dashboard'
+import './config'
 const reduxDevtools = window.devToolsExtension
 //1新建store
 const store = createStore(reducers, compose(
